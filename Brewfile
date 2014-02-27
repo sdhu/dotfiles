@@ -35,6 +35,7 @@ install ack
 #install exiv2
 install git
 install imagemagick --with-webp
+install imagesnap
 install lynx
 install node
 install pigz
@@ -47,6 +48,69 @@ install p7zip
 
 tap homebrew/versions
 install lua52
+
+### Data Science
+brew tap homebrew/science
+install gfortran
+install zeromq
+install freetype
+install openblas
+install graphviz
+install cairo --without-x
+install py2cairo # this will ask you to download xquartz and install it
+install qt pyqt
+install r
+tap staticfloat/julia
+install --HEAD --64bit julia
+
+
+### DB
+install mongo
+install mysql
+
+#### install cask
+tap phinze/homebrew-cask
+install brew-cask
+#cask install alfred
+#cask alfred link
+cask install appcleaner
+
+cask install google-chrome
+cask install firefox
+cask install skype
+cask install adium
+
+## media
+cask install instacast
+#cask install dropbox
+cask install spotify
+cask install vlc
+
+## torrent
+cask install bittorrent-sync
+cask install transmission
+
+## development
+#cask install iterm2
+cask install xquartz
+cask install sublime-text
+cask install intellij-idea
+cask install rstudio
+# markdown editor
+cask install mou
+# FTP,S3 
+cask install transmit
+# VPN
+cask install viscosity
+# visualize regex
+cask install reggy
+# documentation offline compatible w/alfred
+cask install dash
+#SQL manage
+cask install sequel-pro
+#virtualization
+#cask install vagrant
+#cask install virtualbox
 
 # Remove outdated versions from the cellar
 cleanup
