@@ -312,3 +312,16 @@ function np() {
 function tre() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX
 }
+
+### Data work on cmd
+#Example usage: paste -d, <(seq 80) <({seq 40; seq 40 -1 1}) | dumbplot
+dumbplot () { gnuplot -e 'set term dumb; set datafile separator ",";  plot "-"'; }
+
+# pbc: parallel bc. First column of input CSV is mapped to {1}, second to {2}, and so forth.
+# Example usage: paste -d, <(seq 100) <(seq 100 -1 1) | ./pbc 'sqrt({1}*{2})'
+pbc () { parallel -C, -k -j100% "echo '$@' | bc -l"; }
+
+#custom for converting time
+ms2date () {  perl -le "print scalar(localtime("$@"/1000))"; }
+pts902date () {  perl -le "print scalar(localtime("$@"/90000))"; }
+ms2pts90 () { echo $(($@*90)); }
