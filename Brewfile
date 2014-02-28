@@ -167,7 +167,6 @@ install mongo
 install mysql
 cask install sequel-pro
 install sqlite
-cask install mesa-sqlite
 
 ### add symlink to /Applications
 #######################################################################
