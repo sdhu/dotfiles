@@ -19,7 +19,7 @@ pip install matplotlib
 pip install statsmodels
 pip install scikit-image
 pip install scikit-learn
-pip install PIL
+pip install pil
 pip install pandas					# data frames
 pip install Theano					# GPU for python
 pip install pymc					# probablistic models
@@ -45,3 +45,6 @@ pip install rdflib SPARQLWrapper
 
 # picloud (easily run python scripts in the cloud)
 pip install cloud
+
+#hadoop
+pip install mrjob
