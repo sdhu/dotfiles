@@ -23,3 +23,10 @@ export GREP_OPTIONS="--color=auto"
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Virtual ENV
+#ensure all new envs are isolated from system
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+export PIP_RESPECT_VIRTUALENV=true
+# avoid pip usage if no env set
+export PIP_REQUIRE_VIRTUALENV=true
