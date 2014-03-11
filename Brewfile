@@ -71,6 +71,7 @@ install node
 install ruby
 install lua52
 install r
+install gettext
 # installs scala, fsc, scalac, scaladoc, scalap
 install scala -with-docs
 install sbt

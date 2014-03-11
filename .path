@@ -3,8 +3,14 @@ export ARCHFLAGS="-arch x86_64"
 # Ensure user-installed binaries take precedence
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/share/python:$PATH
 
-# Virtualenv
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages/:$PYTHONPATH
+#opencv
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$HOME/.virtualenvs/opencv/local/lib
+export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:$HOME/.virtualenvs/opencv/local/lib/pkgconfig
+export PYTHONPATH=$HOME/install/opencv/build/lib:/usr/local/lib/python2.7/site-packages/:$PYTHONPATH
+
+#assume opencv will be built on virtual env named "opencv"
+
+#virtualEnv
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/code
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python

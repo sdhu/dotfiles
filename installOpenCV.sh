@@ -51,10 +51,13 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D PYTHON_EXECUTABLE=$WORKON_HOME/opencv/bin/python \
 -D PYTHON_PACKAGES_PATH=$WORKON_HOME/opencv/lib/python2.7/site-packages \
 -D INSTALL_PYTHON_EXAMPLES=ON \
--D PYTHON_INCLUDE_DIR=/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Headers \
+-D PYTHON_INCLUDE_DIR=$WORKON_HOME/opencv/include/python2.7 \
 -D PYTHON_LIBRARY=/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib \
 -D WITH_TBB=ON \
 ..
 
+# -D PYTHON_INCLUDE_DIR=/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Headers \
+
 #make -j8
 #make install
+#https://medium.com/python-programming-language/bf4d82220313
