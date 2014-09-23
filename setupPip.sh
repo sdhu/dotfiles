@@ -16,13 +16,13 @@ pip install cython
 pip install boto
 pip install numpy
 pip install scipy
+pip install pandas                  # data frames
 pip install matplotlib
 pip install patsy
 pip install statsmodels
 pip install scikit-image
 pip install scikit-learn
 pip install Pillow
-pip install pandas					# data frames
 pip install Theano					# GPU for python
 pip install pymc					# probablistic models
 pip install requests				# parse restful API
@@ -31,6 +31,10 @@ pip install traits traitsUI			# other Enthought packages
 pip install nltk
 pip install sympy 					# replace mathematica
 pip install q						# fancy debugging
+
+# text stuff
+pip install pattern
+pip install gensim
 
 # ipython
 pip install jinja2
@@ -51,3 +55,7 @@ pip install cloud
 
 #hadoop
 pip install mrjob
+
+#graphviz
+pip install networkx
+pip install pygraphviz

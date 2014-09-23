@@ -8,6 +8,7 @@ brew update
 brew upgrade
 
 # setup virtual env
+source /usr/local/bin/virtualenvwrapper.sh
 mkvirtualenv opencv
 
 # install numpy and other deps
@@ -52,10 +53,12 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D PYTHON_PACKAGES_PATH=$WORKON_HOME/opencv/lib/python2.7/site-packages \
 -D INSTALL_PYTHON_EXAMPLES=ON \
 -D PYTHON_INCLUDE_DIR=$WORKON_HOME/opencv/include/python2.7 \
--D PYTHON_LIBRARY=/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Versions/2.7/lib/libpython2.7.dylib \
+-D PYTHON_LIBRARY=/usr/local/Cellar/python/2.7.8_1/Frameworks/Python.framework/Versions/Current/lib/libpython2.7.dylib \
 -D WITH_TBB=ON \
+-DBUILD_SHARED_LIBS=OFF \
 ..
 
+#LIB off for java
 # -D PYTHON_INCLUDE_DIR=/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Headers \
 
 #make -j8

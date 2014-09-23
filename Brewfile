@@ -10,15 +10,15 @@ install coreutils
 install libevent
 # Install Bash 4
 install findutils
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed 				
-install bash 					
+# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
+install bash
 install bash-completion
 install nginx
 
 ## Network
 install ssh-copy-id
 install curl
-install wget --enable-iri		
+install wget --enable-iri
 
 ## Install RingoJS and Narwhal
 # Note that the order in which these are installed is important; see http://git.io/brew-narwhal-ringo.
@@ -75,10 +75,11 @@ install gettext
 # installs scala, fsc, scalac, scaladoc, scalap
 install scala -with-docs
 install sbt
-install maven     					
+install maven
 install thrift
-#To build opencv 
+#To build opencv
 install cmake
+install tbb
 
 #### CASK
 #######################################################################
@@ -88,12 +89,14 @@ cask install alfred
 cask alfred link
 
 ## Utils
-cask install appcleaner		
-# Viz for free space		
+cask install appcleaner
+# Viz for free space
 cask install grandperspective
 cask install xquartz
 # For context-aware automationfind
 cask install controlplane
+# sunlight
+cask install f-lux
 
 ## Browser
 cask install google-chrome
@@ -126,7 +129,7 @@ cask install mou
 ## Dev Tools
 #http://alexw.me/2013/10/definitive-guid-to-development-mac-setup/
 cask install gephi
-cask install sourcetree	
+cask install sourcetree
 cask install transmit
 # VPN
 cask install viscosity
@@ -134,6 +137,8 @@ cask install viscosity
 cask install reggy
 # documentation offline compatible w/alfred
 cask install dash
+# HTTP monitor
+cask install charles
 
 ## Virtualization
 # VM virtual images will be stored in ${HOME}/VirtualBox VMs/
@@ -144,8 +149,10 @@ cask install dash
 ## Development
 #######################################################################
 install s3cmd
+install jenkins
+install awscli
 # Includes the Heroku client and foreman
-install heroku-toolbelt		
+install heroku-toolbelt
 
 ## Data Science (prepare for pip install)
 install gfortran
@@ -154,6 +161,9 @@ install openblas
 install cairo --without-x
 install py2cairo
 install gnuplot
+install jq
+install vowpal-wabbit
+install graphviz
 
 ## Julia
 tap staticfloat/julia

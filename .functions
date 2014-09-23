@@ -321,7 +321,52 @@ dumbplot () { gnuplot -e 'set term dumb; set datafile separator ",";  plot "-"';
 # Example usage: paste -d, <(seq 100) <(seq 100 -1 1) | ./pbc 'sqrt({1}*{2})'
 pbc () { parallel -C, -k -j100% "echo '$@' | bc -l"; }
 
+
+#print pretty json
+prettyjson() { cat $@ | python -m json.tool; }
+
 #custom for converting time
 ms2date () {  perl -le "print scalar(localtime("$@"/1000))"; }
 pts902date () {  perl -le "print scalar(localtime("$@"/90000))"; }
 ms2pts90 () { echo $(($@*90)); }
+
+
+i### OnCue Environments
+function bake-instance {
+  aws ec2 describe-instances --filters "Name=group-name,Values=$1-${2//\./-}*" |sed -n -e 's/.*PublicDnsName": "\(.*\)".*/\1/p'
+}
+
+function bake-add-key {
+  hosts=`bake-instance $1 ${2//\./-}`
+  [ -z "$hosts" ] && echo "ERROR: Can't find host for group: $1-${2//\./-}" && return
+  declare -i lines
+  lines=`wc -l <<< "$hosts"`
+  echo "Host(s) for $1-${2//\./-} [$lines]:"
+  echo "$hosts"
+  read -sp "Enter password:" password
+  echo ""
+  echo "$hosts" | xargs -I {} -P $lines ec2-add-key.py --host {} --env $1 --user $USER --password $password --keyfile $AWS_KEY_FILE.pub
+}
+
+function aws-add-key {
+  read -sp "Enter password:" password
+  ec2-add-key.py --host $2 --env $1 --user $USER --password $password --keyfile $AWS_KEY_FILE.pub
+}
+
+
+function aws-env {
+  if [[ -f ~/.env/$1 ]]
+  then
+    source ~/.env/$1
+    [ -f ~/.aws/config ] && sed -i '' -e "s#aws_access_key_id = .*#aws_access_key_id = $AWS_ACCESS_KEY#" -e "s#aws_secret_access_key = .*#aws_secret_access_key = $AWS_SECRET_KEY#" ~/.aws/config
+    [ -f ~/.s3cfg ] && sed -i '' -e "s#access_key = .*#access_key = $AWS_ACCESS_KEY#" -e "s#secret_key = .*#secret_key = $AWS_SECRET_KEY#" ~/.s3cfg
+  else
+    echo "Invalid env '$1'"
+    echo "Usage: aws-env [dev|imdev|imqa]"
+  fi
+  echo "S: $AWS_SECRET_KEY"
+  echo "A: $AWS_ACCESS_KEY"
+  echo "U: $AWS_CONSOLE_URL"
+  echo "U: $AWS_CONSOLE_USR"
+  echo "P: $AWS_CONSOLE_PWD"
+}

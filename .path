@@ -1,7 +1,7 @@
 export ARCHFLAGS="-arch x86_64"
 
 # Ensure user-installed binaries take precedence
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/share/python:$PATH
+export PATH=~/.env:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/share/python:$PATH
 
 #opencv
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:$HOME/.virtualenvs/opencv/local/lib
