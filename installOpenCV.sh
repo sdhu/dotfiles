@@ -7,9 +7,15 @@
 brew update
 brew upgrade
 
+# requirements for opencv
+brew install lame jpeg libpng cmake pkg-config eigen libtiff jasper ffmpeg tbb
+brew install ant --with-ivy
+brew linkapps
+brew cleanup
+
 # setup virtual env
 source /usr/local/bin/virtualenvwrapper.sh
-mkvirtualenv opencv
+mkvirtualenv opencv-latest
 
 # install numpy and other deps
 pip install cython
@@ -37,27 +43,28 @@ pip install tornado
 pip install readline
 pip install ipython
 
-# requirements for opencv
-brew install lame jpeg libpng cmake pkg-config eigen libtiff jasper ffmpeg tbb
-
 #get latest and greatest opencv
-cd ~/install
+# cd ~/install
 git clone https://github.com/Itseez/opencv.git
 
-cd opencv/
+cd opencv
 mkdir build
 cd build
+
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
--D CMAKE_INSTALL_PREFIX=$WORKON_HOME/opencv/local/ \
--D PYTHON_EXECUTABLE=$WORKON_HOME/opencv/bin/python \
--D PYTHON_PACKAGES_PATH=$WORKON_HOME/opencv/lib/python2.7/site-packages \
+-D CMAKE_INSTALL_PREFIX=$WORKON_HOME/opencv-latest/local/ \
+-D PYTHON_EXECUTABLE=$WORKON_HOME/opencv-latest/bin/python \
+-D PYTHON_PACKAGES_PATH=$WORKON_HOME/opencv-latest/lib/python2.7/site-packages \
 -D INSTALL_PYTHON_EXAMPLES=ON \
--D PYTHON_INCLUDE_DIR=$WORKON_HOME/opencv/include/python2.7 \
--D PYTHON_LIBRARY=/usr/local/Cellar/python/2.7.8_1/Frameworks/Python.framework/Versions/Current/lib/libpython2.7.dylib \
+-D PYTHON_INCLUDE_DIR=$WORKON_HOME/opencv-latest/include/python2.7 \
+-D PYTHON_LIBRARY=/usr/local/Cellar/python/2.7.8_2/Frameworks/Python.framework/Versions/Current/lib/libpython2.7.dylib \
 -D WITH_TBB=ON \
--DBUILD_SHARED_LIBS=OFF \
+-D BUILD_SHARED_LIBS=OFF \
+-D CMAKE_CXX_FLAGS:STRING='-stdlib=libstdc++ -v' \
 ..
 
+
+#need to add stdlib since mavericks includes 2 versions of stdlib, need to compile with old version of libstdc++, since libc++ is for c11
 #LIB off for java
 # -D PYTHON_INCLUDE_DIR=/usr/local/Cellar/python/2.7.6/Frameworks/Python.framework/Headers \
 
