@@ -83,9 +83,8 @@ brew install cmake
 brew install tbb
 
 #### CASK
-#######################################################################
-brew tap phinze/homebrew-brew cask
-brew install brew-brew cask
+######################################################################
+brew install caskroom/cask/brew-cask
 brew cask install alfred
 brew cask alfred link
 

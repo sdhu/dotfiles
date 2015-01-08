@@ -42,6 +42,7 @@ pip install pygments
 pip install tornado
 pip install readline
 pip install ipython
+pip install jinja2
 
 #get latest and greatest opencv
 # cd ~/install
@@ -57,7 +58,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D PYTHON_PACKAGES_PATH=$WORKON_HOME/opencv-latest/lib/python2.7/site-packages \
 -D INSTALL_PYTHON_EXAMPLES=ON \
 -D PYTHON_INCLUDE_DIR=$WORKON_HOME/opencv-latest/include/python2.7 \
--D PYTHON_LIBRARY=/usr/local/Cellar/python/2.7.8_2/Frameworks/Python.framework/Versions/Current/lib/libpython2.7.dylib \
+-D PYTHON_LIBRARY=/usr/local/Cellar/python/2.7.9/Frameworks/Python.framework/Versions/Current/lib/libpython2.7.dylib \
 -D WITH_TBB=ON \
 -D BUILD_SHARED_LIBS=OFF \
 -D CMAKE_CXX_FLAGS:STRING='-stdlib=libstdc++ -v' \
