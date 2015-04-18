@@ -21,6 +21,12 @@ nmap <silent> ,cd :lcd %:h<CR>
 nmap <silent> ,cr :lcd <c-r>=FindGitDirOrRoot()<cr><cr>
 nmap <silent> ,md :!mkdir -p %:p:h<CR>
 
+" switching between buffers
+nmap <silent> ,b :bn<cr>
+nmap <silent> ,bb :bp<cr>
+nmap <silent> ,bd :bd<cr> 
+nmap <silent> ,bc :bp<bar>sp<bar>bn<bar>bd<CR>
+
 " Turn off that stupid highlight search
 nmap <silent> ,n :nohls<CR>
 
@@ -41,6 +47,11 @@ map! <S-Insert> <MiddleMouse>
 nmap <silent> ,ww :set invwrap<cr>
 nmap <silent> ,wW :windo set invwrap<cr>
 
+" move around panes
+map <S-j> <C-W>j
+map <S-k> <C-W>k
+map <S-h> <C-W>h
+map <S-l> <C-W>l
 
 if has("mac")
   let g:main_font = "Anonymous\\ Pro:h11"

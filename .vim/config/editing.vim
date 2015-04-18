@@ -26,7 +26,7 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 set scrolloff=8
 
 " Allow the cursor to go in to "invalid" places
-set virtualedit=all
+"set virtualedit=all
 
 " Disable encryption (:X)
 set key=
